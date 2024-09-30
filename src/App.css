@@ -1,0 +1,22 @@
+@media (max-width: 400px) {
+  .opacity-mobile-none {
+    opacity: 0;
+  }
+
+  .opacity-mobile-full {
+    opacity: 100;
+  }
+
+  .w-mobile-full {
+    width: 100%;
+  }
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.scroller {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
