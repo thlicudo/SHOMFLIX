@@ -1,12 +1,14 @@
 import { useEffect, useState, useRef } from "react";
 
+const FADE_DURATION = 500;
+const SLIDESHOW_INTERVAL = 30000;
+
 const useGetSlideshow = (movies) => {
   const [slideshow, setSlideshow] = useState();
   const [backdrop, setBackdrop] = useState();
   const [animationClass, setAnimationClass] = useState("animate-fade_in");
   const displayedMoviesRef = useRef(new Set());
-  const FADE_DURATION = 500;
-  const SLIDESHOW_INTERVAL = 30000;
+
   const imagePath = `https://image.tmdb.org/t/p/original/`;
 
   useEffect(() => {
@@ -30,11 +32,15 @@ const useGetSlideshow = (movies) => {
 
       let randomIndex = getRandomIndex();
 
-      if (
+      while (
         movies[randomIndex].images.logos.length === 0 ||
         movies[randomIndex].videos.trailer.length === 0
-      )
-        return;
+      ) {
+        if (displayedMovies.size === movies.length) {
+          displayedMovies.clear();
+        }
+        randomIndex = getRandomIndex();
+      }
 
       const randomBackdrop = Math.floor(
         Math.random() * movies[randomIndex].images.backdrops.length,

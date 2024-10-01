@@ -4,10 +4,15 @@ import { fetchImages } from "./fetchImages";
 import { fetchMovieDetail } from "./fetchDetails";
 
 const TRENDING_URL = `https://api.themoviedb.org/3/trending/movie/day?language=en-US&api_key=${API_KEY}`;
+
 const POPULAR_URL = `https://api.themoviedb.org/3/movie/popular?language=en-US&region=US&api_key=${API_KEY}`;
+
 const TOP_RATED_URL = `https://api.themoviedb.org/3/movie/top_rated?language=en-US&region=US&api_key=${API_KEY}`;
+
 const UPCOMING_URL = `https://api.themoviedb.org/3/movie/upcoming?language=en-US&region=US&api_key=${API_KEY}`;
+
 const NOW_PLAYING_URL = `https://api.themoviedb.org/3/movie/now_playing?language=en-US&region=US&api_key=${API_KEY}`;
+
 const DISCOVER_URL = (page) =>
   `https://api.themoviedb.org/3/discover/movie?page=${page}&include_adult=false&language=en-US&sort_by=popularity.desc&api_key=${API_KEY}`;
 

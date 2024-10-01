@@ -42,7 +42,7 @@ const TvShows = ({ query }) => {
         />
       )}
 
-      {/* FEATURED MOVIE */}
+      {/* FEATURED SERIES */}
       <section className="flex h-full items-center justify-center lg:h-screen">
         <FeaturedCard
           movies={topRated}

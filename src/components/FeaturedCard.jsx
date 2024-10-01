@@ -10,12 +10,16 @@ const FeaturedCard = ({ movies, link, handleShowTrailer }) => {
 
   useEffect(() => {
     const selectRandomMovie = () => {
+      const filteredMovies = movies.filter(
+        (movie) => movie.images.logos.length !== 0,
+      );
+
       let randomIndex;
       do {
-        randomIndex = Math.floor(Math.random() * movies.length);
-      } while (movies[randomIndex]?.videos?.trailer.length === 0);
+        randomIndex = Math.floor(Math.random() * filteredMovies.length);
+      } while (filteredMovies[randomIndex]?.videos?.trailer.length === 0);
 
-      setMovie(movies[randomIndex]);
+      setMovie(filteredMovies[randomIndex]);
     };
 
     selectRandomMovie();
