@@ -55,6 +55,14 @@ const Header = ({ setQuery, query }) => {
     setQuery(e.target.value);
   };
 
+  useEffect(() => {
+    document.addEventListener("click", toggleSearch);
+
+    return () => {
+      document.removeEventListener("click", toggleSearch);
+    };
+  });
+
   const toggleMobileMenu = () => {
     setIsBarClicked(!isBarClicked);
     if (isSearchClicked) {
@@ -76,7 +84,6 @@ const Header = ({ setQuery, query }) => {
       setQuery("");
     } else {
       setIsSearchClicked(false);
-
       setQuery("");
     }
 
@@ -84,14 +91,6 @@ const Header = ({ setQuery, query }) => {
       setIsSearchClicked(true);
     }
   };
-
-  useEffect(() => {
-    document.addEventListener("click", toggleSearch);
-
-    return () => {
-      document.removeEventListener("click", toggleSearch);
-    };
-  });
 
   return (
     <header className="absolute z-[99] w-full">
